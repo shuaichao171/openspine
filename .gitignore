@@ -1,0 +1,85 @@
+# Project build and release output
+/bin/
+/build/
+/out/
+/target/
+/dist/
+/artifacts/
+/publish/
+/publish-candidate/
+
+# Extracted native libraries and local research/reference material
+/.lwjgl/
+/spine_jar/
+/.codex-*.png
+
+# Java and JVM generated files
+*.class
+*.war
+*.ear
+*.nar
+*.hprof
+hs_err_pid*
+replay_pid*
+
+# Build tool caches
+/.gradle/
+/.mvn/timing.properties
+/.mvn/wrapper/maven-wrapper.jar
+
+# IDE and editor metadata
+/.idea/
+/.vscode/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.factorypath
+.apt_generated/
+.apt_generated_tests/
+.metadata/
+.mtj.tmp/
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+
+# Logs, temporary files, and local configuration
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Operating system files
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# OpenSpine interrupted export transactions
+.openspine-sequence-*/
+.openspine-spine-rebuild-*/
+
+# JVM/runtime diagnostics
+*.jfr
+*.dmp
+*.pid
+*.pid.lock
+*.lck
+core
+core.*
+
+# Merge/patch leftovers
+*.orig
+*.rej

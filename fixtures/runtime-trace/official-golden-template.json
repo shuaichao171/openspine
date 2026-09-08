@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "producer": "Spine Editor",
+  "producerVersion": "4.3.23",
+  "spineVersion": "4.3.0",
+  "sourceSha256": "replace-with-runtime-source-sha256",
+  "animation": "animation-name",
+  "fps": 30,
+  "frames": [
+    {
+      "index": 0,
+      "time": 0,
+      "bones": [
+        {
+          "name": "root",
+          "worldX": 0,
+          "worldY": 0,
+          "a": 1,
+          "b": 0,
+          "c": 0,
+          "d": 1
+        }
+      ],
+      "physics": [
+        {
+          "name": "spring",
+          "inertia": 1,
+          "strength": 100,
+          "damping": 1,
+          "massInverse": 1,
+          "wind": 0,
+          "gravity": 0,
+          "mix": 1
+        }
+      ],
+      "sliders": [
+        {
+          "name": "driver",
+          "time": 0,
+          "mix": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Keep the vendored browser runtime byte-for-byte identical to its published package.
+assets/spine-player/4.3.5/spine-player.min.js -text
+assets/spine-player/4.3.5/spine-player.min.css -text
+assets/spine-player/4.3.5/LICENSE -text
+lib/spine-player-LICENSE.txt -text

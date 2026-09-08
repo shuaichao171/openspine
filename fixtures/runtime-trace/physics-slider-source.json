@@ -1,0 +1,82 @@
+{
+  "skeleton": {
+    "spine": "4.3.0",
+    "fps": 30
+  },
+  "bones": [
+    { "name": "root", "color": "9b9b9bff" },
+    { "name": "spring-bone", "parent": "root", "length": 80, "x": 40, "color": "5bc0ebff" }
+  ],
+  "constraints": [
+    {
+      "name": "spring",
+      "type": "physics",
+      "bone": "spring-bone",
+      "x": 1,
+      "rotate": 1,
+      "fps": 30,
+      "inertia": 0.7,
+      "strength": 80,
+      "damping": 0.65,
+      "wind": 12,
+      "gravity": -20,
+      "mix": 0.9
+    },
+    {
+      "name": "driver",
+      "type": "slider",
+      "animation": "driven",
+      "time": 0.25,
+      "mix": 0.8
+    }
+  ],
+  "skins": {},
+  "animations": {
+    "driven": {
+      "bones": {
+        "root": {
+          "rotate": [
+            { "time": 0, "value": 0 },
+            { "time": 1, "value": 90 }
+          ]
+        }
+      },
+      "slots": {}
+    },
+    "preview": {
+      "bones": {
+        "spring-bone": {
+          "translate": [
+            { "time": 0, "x": 0, "y": 0 },
+            { "time": 0.5, "x": 30, "y": 15 },
+            { "time": 1, "x": 0, "y": 0 }
+          ]
+        }
+      },
+      "slots": {},
+      "physics": {
+        "spring": {
+          "reset": [
+            { "time": 0.5 }
+          ],
+          "gravity": [
+            { "time": 0, "value": -20 },
+            { "time": 1, "value": 10 }
+          ]
+        }
+      },
+      "slider": {
+        "driver": {
+          "time": [
+            { "time": 0, "value": 0.1 },
+            { "time": 1, "value": 0.9 }
+          ],
+          "mix": [
+            { "time": 0, "value": 0.8 },
+            { "time": 1, "value": 1 }
+          ]
+        }
+      }
+    }
+  }
+}

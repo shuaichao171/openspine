@@ -157,6 +157,11 @@ Spine 数据版本和输入源 SHA-256；命令会拒绝来源不明或由 OpenS
 > 若只想跑逻辑冒烟测试（不依赖 GL/窗口）：
 > `java -cp "bin;lib\*" com.openspine.io.SmokeTest`
 
+JSON 皮肤导出另有跨运行时检查：构建后运行 `node scripts/test-json-export.cjs`，使用内置官方
+Spine 4.3.5 TypeScript 读取器检查皮肤、附件及关联动画，无需浏览器或 npm 依赖。Java 发布测试也会自动
+运行 `SkinJsonExportTest` 的容器类型断言，避免 libGDX 同时接受对象和数组而漏检。
+修复范围和复现说明见 [JSON skins 导出兼容性修复](docs/json-skins-export-fix.md)。
+
 发布流程需要带 `jpackage` 的 **JDK 17+**，会依次运行加载播放、文件往返、安全导出、动画编辑、撤销历史和结构删除回归测试。
 默认发布版本为 `0.2.91`，产物位于 `publish/OpenSpine` 和 `publish/OpenSpine-0.2.91-win64.zip`。
 

@@ -106,7 +106,7 @@ import com.openspine.model.SkeletonDocument;
 
 /**
  * 导出 doc.data 为 Spine 4.3 JSON 格式（与 spine-libgdx SkeletonJson.readSkeletonData 对称）。
- * 零 GL 依赖，可在无头环境（SmokeTest）验证：导出的 JSON 应能被 SkeletonJson 重新加载且等价。
+ * 零 GL 依赖。除运行时回读外，必须检查 JSON 容器类型：libGDX 会同时接受数组和对象。
  */
 public class SkeletonExporter {
 	public static final String EXPORT_VERSION = "4.3.0";
@@ -291,12 +291,11 @@ public class SkeletonExporter {
 			sb.append(",\n");
 		}
 
-		// skins —— 4.3 新格式：每个 skin 对象含 name 字段 + attachments
-		sb.append("\"skins\": {\n");
+		// Spine 4.3 requires an array. libGDX also reads named objects, masking invalid exports.
+		sb.append("\"skins\": [\n");
 		for (int si = 0; si < d.getSkins().size; si++) {
 			Skin skin = d.getSkins().get(si);
-			quote(skin.getName(), sb);
-			sb.append(": {\n\"name\": ");
+			sb.append("{\n\"name\": ");
 			quote(skin.getName(), sb);
 			if (skin.getBones().notEmpty()) {
 				sb.append(",\n\"bones\": [");
@@ -349,7 +348,7 @@ public class SkeletonExporter {
 			if (si < d.getSkins().size - 1) sb.append(',');
 			sb.append('\n');
 		}
-		sb.append("},\n");
+		sb.append("],\n");
 
 		if (d.getEvents().notEmpty()) {
 			writeEventDefinitions(sb, d.getEvents());

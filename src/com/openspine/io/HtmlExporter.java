@@ -63,17 +63,7 @@ public final class HtmlExporter {
 	}
 
 	private static String playerJson(SkeletonDocument document) {
-		JsonReader reader = new JsonReader();
-		JsonValue root = reader.parse(SkeletonExporter.toJson(document));
-		JsonValue skins = root.get("skins");
-		if (skins != null && skins.isObject()) {
-			// The Java runtime accepts named objects, while Spine Player's JSON reader requires an array.
-			JsonValue array = new JsonValue(JsonValue.ValueType.array);
-			for (JsonValue skin : skins) array.addChild(reader.parse(skin.toJson(OutputType.json)));
-			root.remove("skins");
-			root.addChild("skins", array);
-		}
-		return root.toJson(OutputType.json);
+		return new JsonReader().parse(SkeletonExporter.toJson(document)).toJson(OutputType.json);
 	}
 
 	private static PlayerAssets playerAssets(SkeletonDocument document) throws IOException {
